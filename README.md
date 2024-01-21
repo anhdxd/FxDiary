@@ -18,6 +18,13 @@ Diary trading with .NET Core MVC - .NET 6
 
  ### FxDiaryDesktop
     * WPF UI, add Dependencies: ActionCoreLib
+    <img src="https://github.com/anhdxd/FxDiary/blob/master/FxDiaryDesktop/Images/Capture.PNG" width="960" alt="main" /> 
+
+    * Double click to view Detail
+    <img src="https://github.com/anhdxd/FxDiary/blob/master/FxDiaryDesktop/Images/Capture-detail.PNG" width="960" alt="detail" /> 
+
+    * Add 3 image to database with paste
+    <img src="https://github.com/anhdxd/FxDiary/blob/master/FxDiaryDesktop/Images/Capture-add.PNG" width="960" alt="add" /> 
 
 
 
