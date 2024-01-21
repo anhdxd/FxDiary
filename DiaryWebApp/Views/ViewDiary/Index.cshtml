@@ -1,0 +1,33 @@
+﻿
+@model IEnumerable<ActionCoreLib.Models.DiaryModel> 
+@{
+    ViewData["Title"] = "Privacy Policy";
+    // Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <link rel="stylesheet" href="~/css/diaryview.css" />
+  <style>
+        .image-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 50%;
+        }
+  </style>
+</head>
+<div>
+    <div class="image-container">
+        @foreach (var item in @Model)
+        {
+            <img src="@item.ImageEntryTF" alt="Image" />
+        }
+    </div>
+    <a href="add-data.html" id="add-button">
+        +
+    </a>
+</div>

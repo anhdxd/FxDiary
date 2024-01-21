@@ -17,7 +17,7 @@ namespace ActionCoreLib.DbEntities
     {
         private readonly string _dbPath;
         public DbSet<Models.DiaryModel> Diary { get; set; }
-        public DbSet<Models.DiaryModel> Other { get; set; }
+        public DbSet<Models.UserAuthenModel> UserAuthen { get; set; }
 
         // constructor
         public DataContext(string DbPath)
@@ -38,6 +38,7 @@ namespace ActionCoreLib.DbEntities
             // TODO: add config for other table
 
             modelBuilder.ApplyConfiguration(new DiaryEntitiesConfig());
+            modelBuilder.ApplyConfiguration(new UserAuthenEntitiesConfig());
             base.OnModelCreating(modelBuilder);
         }
 

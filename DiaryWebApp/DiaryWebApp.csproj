@@ -7,6 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Diary.db" />
+    <None Remove="Diary.db-shm" />
+    <None Remove="Diary.db-wal" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ActionCoreLib\ActionCoreLib.csproj" />
   </ItemGroup>
 

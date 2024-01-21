@@ -15,7 +15,10 @@ namespace ActionCoreLib.Models
         public int Id { get; set; }
 
         //[Required]
-        public int TimeStamp { get; set; }
+        public string? Pair { get; set; } // Name of the forex pair or current stock
+
+        //[Required]
+        public long TimeStamp { get; set; }
 
         //[Required]
         public int OrderType { get; set; } // 0: Buy, 1: Sell
@@ -31,8 +34,14 @@ namespace ActionCoreLib.Models
         public byte[]? Image2 { get; set; } // Image 2 - optional
 
         public byte[]? Image3 { get; set; } // Image 3 - optional
+    }
 
+    public class ThumbnailModel
+    {
+        // ảnh thu nhỏ
+        public int Id { get; set; }
 
+        public byte[]? Image { get; set; } // Image, entry timeframe
 
     }
 }
