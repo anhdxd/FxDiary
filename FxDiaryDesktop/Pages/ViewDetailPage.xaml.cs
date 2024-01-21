@@ -35,20 +35,31 @@ namespace FxDiaryDesktop.Pages
                 _diaryDetail = value;
             }
         }
-        public ViewDetailPage(DiaryModel diaryDetail)
+        public ViewDetailPage(/*DiaryModel diaryDetail*/)
         {
             InitializeComponent();
-            _diaryDetail = diaryDetail;
+            //_diaryDetail = diaryDetail;
 
-            // Read image bytes from Images/ folder
+            //if (_diaryDetail != null)
+            //{
+            //    _diaryDetail.ImageEntryTF ??= imageDefault;
+            //    _diaryDetail.Image2 ??= imageDefault;
+            //    _diaryDetail.Image3 ??= imageDefault;
+            //}
+
+           
             
+            //DataContext = this;
+        }
 
+        public void ChangeData(DiaryModel diaryDetail)
+        {
+            _diaryDetail = diaryDetail;
             if (_diaryDetail != null)
             {
                 _diaryDetail.Image2 ??= imageDefault;
                 _diaryDetail.Image3 ??= imageDefault;
             }
-
             DataContext = this;
         }
     }

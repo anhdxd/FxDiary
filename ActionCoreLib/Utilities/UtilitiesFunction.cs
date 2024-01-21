@@ -18,5 +18,23 @@ namespace ActionCoreLib.Utilities
 
             return timestamp;
         }
+
+        public static void BackupDatabase(string path)
+        {
+            string backupPath = path + ".bak";
+            if (System.IO.File.Exists(path))
+            {
+           
+                System.IO.File.Copy(path, backupPath, true);
+            }
+        }
+        public static void RestoreDatabase(string path)
+        {
+            string backupPath = path + ".bak";
+            if (System.IO.File.Exists(backupPath))
+            {
+                System.IO.File.Copy(backupPath, path, true);
+            }
+        }
     }
 }

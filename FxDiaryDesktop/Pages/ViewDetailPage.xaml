@@ -24,12 +24,12 @@
             <StackPanel>
                 <!--Show 5 line text in center-->
 
-                <TextBlock Text="{Binding Path=DiaryDetail.Id, StringFormat='ID: {0}'}" TextAlignment="Center" HorizontalAlignment="Center" FontSize="20" />
-                <TextBlock Text="{Binding Path=DiaryDetail.Pair, StringFormat='Pair: {0}'}" TextAlignment="Center" HorizontalAlignment="Center" FontSize="20" />
-                <TextBlock Text="{Binding Path=DiaryDetail.TimeStamp, StringFormat='Time: {0}'}" TextAlignment="Center" HorizontalAlignment="Center" FontSize="20" />
-                <TextBlock Text="{Binding Path=DiaryDetail.OrderType,StringFormat='Type: {0}'}" TextAlignment="Center" HorizontalAlignment="Center" FontSize="20" />
-                <TextBlock Text="{Binding Path=DiaryDetail.RiskReward,StringFormat='RR: {0}'}" TextAlignment="Center" HorizontalAlignment="Center" FontSize="20" />
-                <TextBlock Text="{Binding Path=DiaryDetail.Note,StringFormat='Note: {0}'}" TextAlignment="Center" HorizontalAlignment="Center" FontSize="20" />
+                <TextBlock Text="{Binding Path=DiaryDetail.Id, StringFormat='ID: {0}'}" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="20" />
+                <TextBlock Text="{Binding Path=DiaryDetail.Pair, StringFormat='Pair: {0}'}" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="20" />
+                <TextBlock Text="{Binding Path=DiaryDetail.TimeStamp, StringFormat='Time: {0}'}" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="20" />
+                <TextBlock Text="{Binding Path=DiaryDetail.OrderType,StringFormat='Type: {0}'}" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="20" />
+                <TextBlock Text="{Binding Path=DiaryDetail.RiskReward,StringFormat='RR: {0}'}" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="20" />
+                <TextBlock Text="{Binding Path=DiaryDetail.Note,StringFormat='Note: {0}'}" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="20" />
             </StackPanel>
         </Border>
         <Border Grid.Column="1" Grid.Row="0" BorderBrush="Black" BorderThickness="1">

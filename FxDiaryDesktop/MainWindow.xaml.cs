@@ -25,12 +25,21 @@ namespace FxDiaryDesktop
     {
         private static readonly ViewPage pageView = new();
         private static readonly AddDiaryPage pageAddDiary = new();
+        private static readonly ViewDetailPage pageDetailDiary = new();
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(pageView);
-            //test
-            //MainFrame.Navigate(pageAddDiary);
+            MainFrame.Content = pageView;
+
+            try
+            {
+                UtilitiesFunction.BackupDatabase(GlobalConst.diaryPath);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Không thể sao lưu dữ liệu:" + e.Message);
+            }
+
 
         }
 
@@ -41,24 +50,26 @@ namespace FxDiaryDesktop
 
         public void ChangePage(Page page)
         {
-            MainFrame.Navigate(page);
+            MainFrame.Content = page;
+            refreshBtn.Visibility = Visibility.Collapsed;
             backbtn.Visibility = Visibility.Visible;
         }
         public void ChangeMainPage()
         {
-            //MainFrame.GoBack();
-            MainFrame.RemoveBackEntry();
-            MainFrame.Navigate(pageView);
-            backbtn.Visibility = Visibility.Collapsed;
+
+            MainFrame.Content = pageView;
+            refreshBtn.Visibility = Visibility.Visible;
+            //backbtn.Visibility = Visibility.Collapsed;
         }
 
-        //public void NavigateToViewDetailPage(DiaryModel diary)
-        //{
-        //    // Chuyển đến trang ViewDetailPage
-        //    ViewDetailPage viewDetailPage = new ViewDetailPage(diary);
-        //    viewDetailPage.Unloaded += ViewDetailPage_Unloaded; // Đăng ký sự kiện Unloaded
-        //    ChangePage(viewDetailPage);
-        //}
+        public void ChangeDetailPage(DiaryModel diary)
+        {
+            pageDetailDiary?.ChangeData(diary!);
+            MainFrame.Content = pageDetailDiary;
+            backbtn.Visibility = Visibility.Visible;
+            refreshBtn.Visibility = Visibility.Collapsed;
+
+        }
 
 
         private void addbtn_Click(object sender, RoutedEventArgs e)
@@ -72,5 +83,5 @@ namespace FxDiaryDesktop
         }
     }
 
-    
+
 }

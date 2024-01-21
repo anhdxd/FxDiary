@@ -46,16 +46,25 @@ namespace FxDiaryDesktop.Pages
 
             // Add image paths to the collection
             ThumbItems = new ObservableCollection<ThumbnailModel>();
+            //DataContext = ThumbItems;
 
-            var thumb = db.Diary.OrderByDescending(x => x.Id).Select(d => new ThumbnailModel
+            // Create task load images
+            Task.Run(() =>
             {
-                Id = d.Id,
-                Image = d.ImageEntryTF
-            }).Take(GlobalConst.limitThumb);
+                var thumb = db.Diary.OrderByDescending(x => x.Id).Select(d => new ThumbnailModel
+                {
+                    Id = d.Id,
+                    Image = d.ImageEntryTF
+                }).Take(GlobalConst.limitThumb);
 
-            ThumbItems = new ObservableCollection<ThumbnailModel>(thumb);
+                // Cập nhật DataContext trong luồng giao diện người dùng chính
+                Application.Current.Dispatcher.Invoke(() =>
+                {
+                    ThumbItems = new ObservableCollection<ThumbnailModel>(thumb);
+                    DataContext = ThumbItems;
+                });
 
-            DataContext = ThumbItems;
+            });
         }
 
         public void RefreshUI()
@@ -81,7 +90,8 @@ namespace FxDiaryDesktop.Pages
             {
                 DiaryModel? diary = db.Diary.Find(thumbnail.Id);
 
-                mainWindow!.ChangePage(new ViewDetailPage(diary!));
+                mainWindow!.ChangeDetailPage(diary!);
+                //mainWindow!.ChangePage(new ViewDetailPage(diary!));
                 // call function to display the diary from MainWindow
 
                 // Query database with id
