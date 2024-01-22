@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using System.Collections.ObjectModel;
 
 namespace FxDiaryDesktop.Pages
 {
@@ -38,18 +39,6 @@ namespace FxDiaryDesktop.Pages
         public ViewDetailPage(/*DiaryModel diaryDetail*/)
         {
             InitializeComponent();
-            //_diaryDetail = diaryDetail;
-
-            //if (_diaryDetail != null)
-            //{
-            //    _diaryDetail.ImageEntryTF ??= imageDefault;
-            //    _diaryDetail.Image2 ??= imageDefault;
-            //    _diaryDetail.Image3 ??= imageDefault;
-            //}
-
-           
-            
-            //DataContext = this;
         }
 
         public void ChangeData(DiaryModel diaryDetail)
@@ -61,6 +50,9 @@ namespace FxDiaryDesktop.Pages
                 _diaryDetail.Image3 ??= imageDefault;
             }
             DataContext = this;
+
+            // reload data
+
         }
     }
 }
